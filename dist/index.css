@@ -1,0 +1,77 @@
+.container {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 200px;
+  height: 200px;
+  border: 2px black solid;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .turns {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  animation: rotation 20s linear infinite;
+}
+.container .turns .item {
+  position: absolute;
+  top: calc(-1 * 200px * 1 / 4 / 2);
+  left: calc(200px / 2 - 200px * 1 / 5 / 2);
+  width: 20%;
+  height: 25%;
+  transform-origin: center calc(200px / 2 + 200px * 1 / 4 / 2);
+}
+.container .turns .item img {
+  width: 100%;
+  height: 100%;
+}
+.container .turns > :nth-child(1) {
+  --initDeg: calc(calc(360deg / 5) * 0);
+  transform: rotate(calc(calc(360deg / 5) * 0));
+}
+.container .turns > :nth-child(1) img {
+  transform: rotate(calc(-1 * calc(calc(360deg / 5) * 0)));
+  animation: rotation 20s linear infinite reverse;
+}
+.container .turns > :nth-child(2) {
+  --initDeg: calc(calc(360deg / 5) * 1);
+  transform: rotate(calc(calc(360deg / 5) * 1));
+}
+.container .turns > :nth-child(2) img {
+  transform: rotate(calc(-1 * calc(calc(360deg / 5) * 1)));
+  animation: rotation 20s linear infinite reverse;
+}
+.container .turns > :nth-child(3) {
+  --initDeg: calc(calc(360deg / 5) * 2);
+  transform: rotate(calc(calc(360deg / 5) * 2));
+}
+.container .turns > :nth-child(3) img {
+  transform: rotate(calc(-1 * calc(calc(360deg / 5) * 2)));
+  animation: rotation 20s linear infinite reverse;
+}
+.container .turns > :nth-child(4) {
+  --initDeg: calc(calc(360deg / 5) * 3);
+  transform: rotate(calc(calc(360deg / 5) * 3));
+}
+.container .turns > :nth-child(4) img {
+  transform: rotate(calc(-1 * calc(calc(360deg / 5) * 3)));
+  animation: rotation 20s linear infinite reverse;
+}
+.container .turns > :nth-child(5) {
+  --initDeg: calc(calc(360deg / 5) * 4);
+  transform: rotate(calc(calc(360deg / 5) * 4));
+}
+.container .turns > :nth-child(5) img {
+  transform: rotate(calc(-1 * calc(calc(360deg / 5) * 4)));
+  animation: rotation 20s linear infinite reverse;
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(calc(360deg - var(--initDeg, 0deg)));
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

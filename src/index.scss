@@ -1,0 +1,49 @@
+$containerSide: 200px;
+$n: 5;
+.container {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: $containerSide;
+  height: $containerSide;
+  border: 2px black solid;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .turns {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    .item {
+      position: absolute;
+      top: calc(-1 * (#{$containerSide} * 1/4) / 2);
+      left: calc(#{$containerSide}/2 - (#{$containerSide} * 1/5) / 2);
+      width: 20%;
+      height: 25%;
+      transform-origin: center calc(#{$containerSide}/2 + (#{$containerSide} * 1/4) / 2);
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    animation: rotation 20s linear infinite;
+    @for $i from 1 through $n {
+      & > :nth-child(#{$i}) {
+        $deg: calc(#{360deg} / $n);
+        $degree: calc(#{$deg} * ($i - 1));
+        --initDeg: #{$degree};
+        transform: rotate($degree);
+        img {
+          transform: rotate(calc(-1 * #{$degree}));
+          animation: rotation 20s linear infinite reverse;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(calc(360deg - var(--initDeg, 0deg)));
+  }
+}
